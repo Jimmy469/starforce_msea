@@ -124,7 +124,7 @@
 
     <label class="button" class:checked={config.event_destruction}>
       <input type="checkbox" bind:checked={config.event_destruction} />
-      <span>-30% boom ≤21</span>
+      <span>-40% boom ≤21, -20% boom ≤24</span>
     </label>
   </div>
 </fieldset>

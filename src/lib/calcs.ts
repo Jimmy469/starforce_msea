@@ -108,7 +108,10 @@ const cost_and_odds = (config: Config, star: number) => {
   }
 
   if (config.event_destruction && star <= 21) {
-    d *= 0.7;
+    d *= 0.6;
+  }
+  else if (config.event_destruction && star > 21 && star <= 24) {
+    d *= 0.8;
   }
 
   return [c, s, d];
