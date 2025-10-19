@@ -106,7 +106,11 @@ const cost_and_odds = (config: Config, star: number) => {
     // c += 2 * COST[star](config.item_level);
 
     // new implementation (cost scales with boom chance, up to 20x)
-    c += COST[star](config.item_level) * boom_chance_given_no_success * 100;
+    // c += COST[star](config.item_level) * boom_chance_given_no_success * 100;
+
+    // next experiment, add a (star# - 14)x multiplier to the above
+    c += COST[star](config.item_level) * boom_chance_given_no_success * 100 * 
+      (star > 20 ? (star - 20)*(star - 20) : 1);
     d = 0;
   } else {
     // no safeguard
