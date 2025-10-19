@@ -10,7 +10,7 @@
 
 <Router bind:config />
 <main>
-  <h1><span class="starforce">★ Starforce</span> Calc <sup class="msea">(msea)</sup></h1>
+  <h1><span class="starforce">★ Starforce</span> Calc <sup class="experimental">(experimental, sg multiplier = boom chance | no success)</sup></h1>
 
   <Inputs bind:config />
   <Result bind:config />

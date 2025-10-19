@@ -101,17 +101,23 @@ const cost_and_odds = (config: Config, star: number) => {
   let s = success_chance * (config.starcatch.includes(star) ? STARCATCH_MULTI : 1);
   let d: number;
   if (config.safeguard && star >= 15 && star < 18) {
-    c += 2 * COST[star](config.item_level);
+    // safeguard
+    // old implmentation (2x cost)
+    // c += 2 * COST[star](config.item_level);
+
+    // new implementation (cost scales with boom chance, up to 20x)
+    c += COST[star](config.item_level) * boom_chance_given_no_success * 100;
     d = 0;
   } else {
+    // no safeguard
     d = (1 - s) * boom_chance_given_no_success;
   }
 
   if (config.event_destruction && star <= 21) {
-    d *= 0.6;
+    d *= 0.7;
   }
   else if (config.event_destruction && star > 21 && star <= 24) {
-    d *= 0.8;
+    // d *= 0.8;
   }
 
   return [c, s, d];
