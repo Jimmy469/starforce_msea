@@ -100,7 +100,7 @@ const cost_and_odds = (config: Config, star: number) => {
   const [success_chance, boom_chance_given_no_success] = PROBABILITIES[star];
   let s = success_chance * (config.starcatch.includes(star) ? STARCATCH_MULTI : 1);
   let d: number;
-  if (config.safeguard && star >= 15 && star < 18) {
+  if (config.safeguard && star >= 15) {
     // safeguard
     // old implmentation (2x cost)
     // c += 2 * COST[star](config.item_level);
